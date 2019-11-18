@@ -101,7 +101,7 @@ Task Test -Depends UnitTests  {
 Task Build -Depends Test {
     $lines
 
-    $functions = Get-ChildItem "$ENV:BHModulePath\Public\*.ps1" |
+    $functions = Get-ChildItem "$ENV:BHModulePath\Public\*.ps1" -Recurse |
         Where-Object {$_.name -notmatch 'Tests'} |
         Select-Object -ExpandProperty basename
 

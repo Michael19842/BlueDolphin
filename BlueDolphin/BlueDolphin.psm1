@@ -37,3 +37,4 @@ if($Mode -eq "Test")    {
     Write-Verbose "Imported Private Functions in test mode"
     Export-ModuleMember -Function (Get-ChildItem -Path "$PSScriptRoot\Private\*.ps1" -Recurse).BaseName
 }
+
