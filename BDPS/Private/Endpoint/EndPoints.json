@@ -1,0 +1,4 @@
+{
+    "ODataApi":"https://odata.bluedolphin.valueblue.nl/",
+    "ODataApiDB":"https://odata.bluedolphin.valueblue.nl/{{database}}"
+}
