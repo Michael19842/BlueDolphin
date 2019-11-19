@@ -9,7 +9,7 @@ Install-Module -Name BlueDolphin
 ```
 
 Download the [latest release](https://github.com/michael19842/BlueDolhin/releases/latest) and  extract the .psm1 and .psd1 files to your PowerShell profile directory (i.e. the `Modules` directory under wherever `$profile` points to in your PS console) and run:
-`Import-Module ServiceNow`
+`Import-Module BlueDolphin`
 
 ## Special thanks to 
 @RamblingCookieMonster: Build/Test/Deploy framework
