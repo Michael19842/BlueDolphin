@@ -5,6 +5,7 @@ function Format-BDUri {
         [Parameter(Mandatory = $false)] $uri,
         [Parameter(Mandatory = $false)] [hashtable] $IsExactly,
         [Parameter(Mandatory = $false)] [hashtable] $StartsWith,
+        [Parameter(Mandatory = $false)] [hashtable] $Contains,
         [Parameter(Mandatory = $false)] [array] $Select,
         [Parameter(Mandatory = $false)] [int] $Top,
         [Parameter(Mandatory = $false)] [int] $Skip,
@@ -18,8 +19,8 @@ function Format-BDUri {
         if($CustomFilter) {
             $_Filter = '&$filter=' + $CustomFilter
         } else {
-            if($IsExactly -or $StartsWith){
-                $_Filter = New-BDFilter -IsExactly $IsExactly -StartsWith $StartsWith
+            if($IsExactly -or $StartsWith -or $Contains){
+                $_Filter = New-BDFilter -IsExactly $IsExactly -StartsWith $StartsWith -Contains $Contains
             }
         }
         #build select

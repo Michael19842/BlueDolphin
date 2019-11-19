@@ -67,7 +67,7 @@
 
 function Get-BDObject {    
     param(
-        [Parameter(Mandatory = $false, ParameterSetName = "GeneratedFilter", Position = 0)] [ValidateScript({Confirm-BDStartWithParamType $_})] $StartsWith,
+        [Parameter(Mandatory = $false, ParameterSetName = "GeneratedFilter", Position = 0)] [ValidateScript({Confirm-BDContainsParamType $_})] $Contains,
         [Parameter(Mandatory = $false, ParameterSetName = "GeneratedFilter")] [hashtable] $IsExactly,
 
         [Parameter(Mandatory = $true, ParameterSetName = "CustomFilter")][ValidateNotNullOrEmpty] [String] $CustomFilter,
@@ -77,9 +77,9 @@ function Get-BDObject {
     )
 
     begin {
-        $_StartsWith = Convert-BDStartsWith $StartsWith
+        $_Contains= Convert-BDContains $Contains
         
-        $Uri = Format-BDUri -uri (Get-BDEndPoint "ODataApiDB" -EndPointParameters @{database = "Objects"}) -IsExactly $IsExactly -StartsWith $_StartsWith -Top $Top -Skip $Skip -Select $Select -CustomFilter $CustomFilter -AllRecords:$AllRecords 
+        $Uri = Format-BDUri -uri (Get-BDEndPoint "ODataApiDB" -EndPointParameters @{database = "Objects"}) -IsExactly $IsExactly -Contains $_Contains -Top $Top -Skip $Skip -Select $Select -CustomFilter $CustomFilter -AllRecords:$AllRecords 
     }
 
     process {

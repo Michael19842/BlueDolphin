@@ -41,5 +41,51 @@
         </TableRowEntries>
       </TableControl>
     </View>
+    <View>
+      <Name>BlueDolphin.Relation</Name>
+      <ViewSelectedBy>
+        <TypeName>BlueDolphin.Relation</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Width>28</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Width>28</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Width>32</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Width>20</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Width>38</Width>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem>
+                <PropertyName>Id</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>BlueDolphinObjectItemId</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>RelatedBlueDolphinObjectItemId</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>Type</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>Name</PropertyName>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
   </ViewDefinitions>
 </Configuration>

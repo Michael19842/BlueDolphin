@@ -1,18 +1,18 @@
-function Confirm-BDStartWithParamType {
+function Confirm-BDContainsParamType {
     [CmdletBinding()]
     [OutputType([bool])]
     param (
-        $StartsWith
+        $Contains
     )
 
     process {
-        $TypeNames = $StartsWith.psObject.TypeNames
+        $TypeNames = $Contains.psObject.TypeNames
         If ($TypeNames -contains 'System.Collections.Hashtable') {
             Return $true
         } ElseIf ($TypeNames -contains 'System.String') {
             Return $true
         } Else {
-            Throw [System.ArgumentException]::new("StartsWith should be of type string or type hashtable")
+            Throw [System.ArgumentException]::new("Contains should be of type string or type hashtable")
         }
     }
 }
