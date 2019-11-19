@@ -22,7 +22,7 @@ Download the [latest release](https://github.com/michael19842/BlueDolhin/release
 
 ### Example: Connecting to BlueDolpin
 
-Connect to BlueDolphin using the API key and tenant name provided in the admin>overview page. Session state will be maintained in a module variable. Logging in should threfore only be required once. 
+Connect to BlueDolphin using the API key and tenant name provided in the admin>overview page. Session state will be maintained in a module variable. Authenticationshould threfore only be required once. 
 
 ```PowerShell
 $params = @{
@@ -32,6 +32,21 @@ $params = @{
 
 Connect-BlueDolphin @params
 ```
+
+### Example: Get a list of objects
+
+```PowerShell
+#Get all objects that contain "x" in the Title
+Get-BDObject "x" 
+
+#Get the top 10 object, select only the Title
+Get-BDObject -top 10 -select Title
+
+#Get all objects where the title is exactly "Campus"
+Get-BDObject -IsExactly @{Title="Campus"}
+```
+
+
 
 ## Special thanks to 
 @RamblingCookieMonster: Build/Test/Deploy framework

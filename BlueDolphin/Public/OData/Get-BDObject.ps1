@@ -74,6 +74,8 @@ function Get-BDObject {
         [Parameter(Mandatory = $false)] [array] $Select,
         [Parameter(Mandatory = $false)] [int] $Top = $_Settings.Defaults.Top,
         [Parameter(Mandatory = $false)] [int] $Skip = $_Settings.Defaults.Skip
+        
+        [switch]$AllRecords 
     )
 
     begin {
