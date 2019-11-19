@@ -73,7 +73,7 @@ function Get-BDObject {
         [Parameter(Mandatory = $true, ParameterSetName = "CustomFilter")][ValidateNotNullOrEmpty] [String] $CustomFilter,
         [Parameter(Mandatory = $false)] [array] $Select,
         [Parameter(Mandatory = $false)] [int] $Top = $_Settings.Defaults.Top,
-        [Parameter(Mandatory = $false)] [int] $Skip = $_Settings.Defaults.Skip
+        [Parameter(Mandatory = $false)] [int] $Skip = $_Settings.Defaults.Skip,
         
         [switch]$AllRecords 
     )

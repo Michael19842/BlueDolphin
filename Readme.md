@@ -1,5 +1,5 @@
 # BlueDolphin module
-This module is build as a means to interact with BlueDolphin oData Rest interface.
+This module is build as a means to interact with BlueDolphin oData REST interface.
 
 ## Disclaimer
 Please be aware that this module is developed or maintained by a third party.
