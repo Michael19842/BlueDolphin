@@ -1,18 +1,24 @@
 # BlueDolphin module
-This module is build as a means to interact with BlueDolphin oData Rest interface
+This module is build as a means to interact with BlueDolphin oData Rest interface.
+
+## Disclaimer
+Please be aware that this module is developed or maintained by a third party.
 
 ## Usage
-###Using Powershell Gallery
 
+### Installation
+#### Using Powershell Gallery
 
 ```PowerShell
 Install-Module -Name BlueDolphin
 ```
 
-### Using GIT
+#### Using GIT
 
 Download the [latest release](https://github.com/michael19842/BlueDolhin/releases/latest) and  extract the .psm1 and .psd1 files to your PowerShell profile directory (i.e. the `Modules` directory under wherever `$profile` points to in your PS console) and run:
 `Import-Module BlueDolphin`
+
+## Examples
 
 ### Example: Connecting to BlueDolpin
 
