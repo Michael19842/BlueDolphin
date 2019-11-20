@@ -32,7 +32,8 @@ function New-BDFilter {
         [parameter(Mandatory=$false)]
         [hashtable] $StartsWith = @{},
         [parameter(Mandatory=$false)]
-        [hashtable] $Contains = @{}
+        [hashtable] $Contains = @{},
+        [switch] $any
     )
     
     begin {
@@ -54,12 +55,12 @@ function New-BDFilter {
         }
 
         foreach($Key in $StartsWith.Keys){
-            if($filter -ne  $filterStart){$filter += " and "}
+            if($filter -ne  $filterStart){$filter += if($any){" or "} else {" and "}}
             $filter += "startswith($key,'$([System.Web.HttpUtility]::UrlEncode($StartsWith[$key]))')"
             Write-Verbose "adding startswith($key,'$($StartsWith[$key])') to filter expression"
         }
         foreach($Key in $Contains.Keys){
-            if($filter -ne  $filterStart){$filter += " and "}
+            if($filter -ne  $filterStart){$filter += if($any){" or "} else {" and "}}
             $filter += "contains($key,'$([System.Web.HttpUtility]::UrlEncode($Contains[$key]))')"
             Write-Verbose "adding startswith($key,'$($Contains[$key])') to filter expression"
         }
