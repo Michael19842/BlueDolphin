@@ -90,6 +90,12 @@ function Invoke-BDWebRequest {
                     $ErrorDetails = ConvertFrom-Json $response.Exception.ErrorDetails
                     throw [System.Exception]::new("$($response.BaseResponse.StatusCode.Value__):: $($ErrorDetails.Error.Message)")
                 }
+                { $_ -in @(502) } {
+                    #Invoke again?
+                    Write-Verbose "Returned 502: Retrying call"
+                    Start-Sleep -Milliseconds 250
+                    return Invoke-BDWebRequest @PSBoundParameters
+                }
                 default {
                     throw "unexpected error $($response.BaseResponse.StatusCode.Value__)"
                 }

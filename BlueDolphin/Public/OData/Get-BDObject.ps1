@@ -75,16 +75,16 @@ function Get-BDObject {
         [Parameter(Mandatory = $false)] [int] $Top = $_Settings.Defaults.Top,
         [Parameter(Mandatory = $false)] [int] $Skip = $_Settings.Defaults.Skip,
         
-        [switch]$AllRecords 
+        [switch]$AllRecords,
+        [Alias("any")][switch] $anyCondition
     )
 
     begin {
         $_Contains= Convert-BDContains $Contains
-        
-        $Uri = Format-BDUri -uri (Get-BDEndPoint "ODataApiDB" -EndPointParameters @{database = "Objects"}) -IsExactly $IsExactly -Contains $_Contains -Top $Top -Skip $Skip -Select $Select -CustomFilter $CustomFilter -AllRecords:$AllRecords 
     }
 
     process {
+        $Uri = Format-BDUri -uri (Get-BDEndPoint "ODataApiDB" -EndPointParameters @{database = "Objects"}) -IsExactly $IsExactly -Contains $_Contains -Top $Top -Skip $Skip -Select $Select -CustomFilter $CustomFilter -AllRecords:$AllRecords -anyCondition:$anyCondition 
         $ReturnValue = Invoke-BDWebRequest -uri $Uri -method get -limitedOutput:([bool]$top -and !$AllRecords ) 
     }
     

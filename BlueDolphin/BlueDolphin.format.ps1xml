@@ -87,5 +87,49 @@
         </TableRowEntries>
       </TableControl>
     </View>
+    <View>
+      <Name>BlueDolphin.RelatedObject</Name>
+      <ViewSelectedBy>
+        <TypeName>BlueDolphin.RelatedObject</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>Explanation</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>RelationDefinition</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>RelationType</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem>
+                <ScriptBlock>
+                  
+                  $rObj = $_
+                  $lObj = $_.RelatedObject
+                  
+                  "{0}-{1}> {2}" -f (($lObj.Title + " ").PadRight(28,'-'),("[" + $_.Relation.Name +"]").PadLeft(13 + $_.Relation.Name.lenght,'-').PadRight(26,'-'),$rObj.Title)
+                </ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>
+                  $_.Relation.RelationshipDefinitionName
+                </ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock>
+                  $_.Relation.Type
+                </ScriptBlock>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
   </ViewDefinitions>
 </Configuration>

@@ -16,3 +16,4 @@ Thumbs.db
 test.bdps.ps1
 build/build.settings.json
 build/BlueDolphin.deploy.ps1
+concept/*.*

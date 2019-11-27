@@ -11,7 +11,8 @@ function Format-BDUri {
         [Parameter(Mandatory = $false)] [int] $Skip,
         [Parameter(Mandatory = $false)] [string] $CustomFilter,
 
-        [switch] $AllRecords
+        [Alias("all")][switch] $AllRecords,
+        [Alias("any")][switch] $AnyCondition
     )
 
     process {
@@ -20,7 +21,7 @@ function Format-BDUri {
             $_Filter = '&$filter=' + $CustomFilter
         } else {
             if($IsExactly -or $StartsWith -or $Contains){
-                $_Filter = New-BDFilter -IsExactly $IsExactly -StartsWith $StartsWith -Contains $Contains
+                $_Filter = New-BDFilter -IsExactly $IsExactly -StartsWith $StartsWith -Contains $Contains -anyCondition:$anyCondition
             }
         }
         #build select
@@ -32,9 +33,7 @@ function Format-BDUri {
             if($Top){
                 $_Top = '&$top=' + "$Top"
             }
-        } else {
-            $_Top = '&$top=' +  999
-        }
+        } 
         #add skip
         if($Skip){
             $_Skip = '&$skip=' + "$skip"

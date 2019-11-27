@@ -7,13 +7,14 @@ function Get-BDRelation {
         [Parameter(Mandatory = $false)] [array] $Select,
         [Parameter(Mandatory = $false)] [int] $Top = $_Settings.Defaults.Top,
         [Parameter(Mandatory = $false)] [int] $Skip = $_Settings.Defaults.Skip,
-        [switch] $AllRecords
+        [switch] $AllRecords,
+        [Alias('any')][switch] $AnyCondition
     )
 
     begin {
         $_Contains = Convert-BDContains $Contains
         
-        $Uri = Format-BDUri -uri (Get-BDEndPoint "ODataApiDB" -EndPointParameters @{database = "Relations"}) -IsExactly $IsExactly -Contains $Contains -Top $Top -Skip $Skip -Select $Select -CustomFilter $CustomFilter -AllRecords:$AllRecords 
+        $Uri = Format-BDUri -uri (Get-BDEndPoint "ODataApiDB" -EndPointParameters @{database = "Relations"}) -IsExactly $IsExactly -Contains $Contains -Top $Top -Skip $Skip -Select $Select -CustomFilter $CustomFilter -AllRecords:$AllRecords -AnyCondition:$AnyCondition
     }
 
     process {
