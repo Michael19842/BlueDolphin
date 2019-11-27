@@ -11,9 +11,7 @@ function Get-BDInformation {
     }
     
     end {
-        if(!$Select){
-            $ReturnValue | ForEach-Object{$_.PSObject.TypeNames.Insert(0,"BlueDolphin.Information")}
-        }
+        $ReturnValue | ForEach-Object{$_.PSObject.TypeNames.Insert(0,"BlueDolphin.Information")}
         Return $ReturnValue 
     }
 }
