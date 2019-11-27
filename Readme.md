@@ -74,7 +74,14 @@ Explanation                                                                     
 (c) Bedrijfsproces ----------[maakt gebruik van]-------> (c) Applicatie            gebruikt door      usedby
 (c) Bedrijfsproces ----------[wordt gebruikt door]-----> (c) Bedrijfsactor         gebruikt door      usedby
 ````
+### Example: Get defenitions
+```PowerShell
+#Get a list of all object defenitions
+Get-BDObjectDefinition 
 
+#Get a list of all relation defenitions
+Get-BDRelationDefinition 
+```
 
 
 
