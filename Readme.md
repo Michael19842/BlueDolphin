@@ -46,6 +46,36 @@ Get-BDObject -top 10 -select Title
 Get-BDObject -IsExactly @{Title="Campus"}
 ```
 
+### Example: Get relations 
+```PowerShell
+#Get all relations that contain "x" in the RelationDefinition
+Get-BDRelation "used" 
+
+#Get all realation where the Id is exactly "xx"
+Get-BDRelation -IsExactly @{Id="xxx"}
+```
+
+### Example: Get related objects
+```PowerShell
+#Get a list of all object related to the object 
+Get-BDRelatedObject "xxx" 
+
+#Using the pipeline
+Get-BDObject "(c)" | Get-BDRelatedObject
+```
+
+Example of output
+````
+Explanation                                                                        RelationDefinition RelationType
+-----------                                                                        ------------------ ------------
+(c) Bedrijfsactor -----------[maakt gebruik van]-------> (c) Applicatie            gebruikt door      usedby
+(c) Bedrijfsactor -----------[maakt gebruik van]-------> (c) Bedrijfsproces        gebruikt door      usedby
+(c) Bedrijfsactor -----------[is onderdeel van]--------> (c) Bedrijfsactor         Compositie         composition
+(c) Bedrijfsproces ----------[maakt gebruik van]-------> (c) Applicatie            gebruikt door      usedby
+(c) Bedrijfsproces ----------[wordt gebruikt door]-----> (c) Bedrijfsactor         gebruikt door      usedby
+````
+
+
 
 
 ## Special thanks to 

@@ -113,7 +113,7 @@
                   $rObj = $_
                   $lObj = $_.RelatedObject
                   
-                  "{0}-{1}> {2}" -f (($lObj.Title + " ").PadRight(28,'-'),("[" + $_.Relation.Name +"]").PadLeft(13 + $_.Relation.Name.lenght,'-').PadRight(26,'-'),$rObj.Title)
+                  "{0}-{1}> {2}" -f (($lObj.Title + " ").PadRight(28,'-'),("[" + $_.Relation.Name +"]").PadLeft(15 + $_.Relation.Name.lenght,'-').PadRight(30,'-'),$rObj.Title)
                 </ScriptBlock>
               </TableColumnItem>
               <TableColumnItem>
