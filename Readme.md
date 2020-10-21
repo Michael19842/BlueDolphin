@@ -2,7 +2,7 @@
 This module is build as a means to interact with BlueDolphin oData REST interface.
 
 ## Disclaimer
-Please be aware that this module is developed or maintained by a third party.
+Please be aware that this module is developed and maintained by a third party.
 
 ## Usage
 
